@@ -41,6 +41,8 @@ We may not accept the following as vulnerabilities:
 - Issues resulting from users disregarding common security best practices (e.g. publicly sharing a password)
 - Vulnerabilities affecting users of outdated / unsupported browsers or platforms
 - Vulnerabilities affecting outdated versions of October CMS
+- Vulnerabilities requiring a modified, custom, or compromised update gateway (the `update_gateway` configuration exists for internal development purposes only and custom gateways are not a supported configuration)
+- Actions performed by authenticated administrators acting within their granted permissions (e.g. an admin publishing content containing JavaScript is by design, not XSS)
 
 ## Third-party Software
 
