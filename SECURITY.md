@@ -2,6 +2,17 @@
 
 **PLEASE DO NOT DISCLOSE SECURITY-RELATED ISSUES PUBLICLY, [SEE BELOW](#reporting-a-vulnerability).**
 
+## Supported Versions
+
+Security updates are provided for the current major version and the previous major version. Minor version upgrades within a major version are expected to be non-breaking.
+
+| Version | Support Status |
+| ------- | -------------- |
+| 4.x     | Supported |
+| 3.x     | Security fixes only |
+| 2.x     | End of life |
+| 1.x     | End of life |
+
 ## Reporting a Vulnerability
 
 If you discover a security vulnerability, please follow these guidelines before submitting a report. We take security seriously and aim to resolve security issues promptly.
@@ -41,8 +52,6 @@ We may not accept the following as vulnerabilities:
 - Issues resulting from users disregarding common security best practices (e.g. publicly sharing a password)
 - Vulnerabilities affecting users of outdated / unsupported browsers or platforms
 - Vulnerabilities affecting outdated versions of October CMS
-- Vulnerabilities requiring a modified, custom, or compromised update gateway (the `update_gateway` configuration exists for internal development purposes only and custom gateways are not a supported configuration)
-- Actions performed by authenticated administrators acting within their granted permissions (e.g. an admin publishing content containing JavaScript is by design, not XSS)
 
 ## Third-party Software
 
