@@ -1,3 +1,5 @@
+Source: https://github.com/octobercms/.github/blob/main/SECURITY.md
+
 # October CMS Security Policy
 
 **PLEASE DO NOT DISCLOSE SECURITY-RELATED ISSUES PUBLICLY, [SEE BELOW](#reporting-a-vulnerability).**
@@ -58,3 +60,16 @@ We may not accept the following as vulnerabilities:
 ## Third-party Software
 
 If you find vulnerabilities or attacks resulting from third-party October CMS plugins or themes, they should be reported to the author directly. If the author does not respond, please contact us to escalate the issue. Attacks resulting from third-party libraries should be reported to the library maintainers. Attacks caused by malicious code (malware) should be reported directly to us.
+
+## Advisory Publication and CVE Allocation
+
+Accepted reports are handled according to their practical impact:
+
+| Severity | Disposition |
+| -------- | ----------- |
+| Critical | GHSA + CVE |
+| High | GHSA + CVE |
+| Medium | GHSA, CVE optional |
+| Low | GHSA only |
+
+We do not allocate CVEs on request for Low-severity reports. The GHSA credits the reporter and is the formal record.
