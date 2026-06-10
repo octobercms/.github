@@ -1,5 +1,3 @@
-Source: https://github.com/octobercms/.github/blob/main/SECURITY.md
-
 # October CMS Security Policy
 
 **PLEASE DO NOT DISCLOSE SECURITY-RELATED ISSUES PUBLICLY, [SEE BELOW](#reporting-a-vulnerability).**
