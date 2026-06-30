@@ -26,6 +26,15 @@ When identifying potential security vulnerabilities, kindly adhere to the follow
 - Provide a well-detailed report with precise explanations and practical attack scenarios
 - Only report issues that fall within the [scope defined below](#scope)
 
+## Trust Model
+
+Before submitting a report, please confirm it represents a real privilege escalation across a documented trust boundary in October CMS:
+
+- **Backend access is trusted.** Any authenticated backend user is trusted to the extent of their granted permissions. The Publisher and Developer role labels are a UX distinction, not a security boundary. Both are trusted roles within the system.
+- **CMS markup editing is a Developer-trust permission.** Users with `editor.cms_pages` (or partials / layouts) can write Twig and PHP by design. Reports that reduce to "a markup editor can do X" are not vulnerabilities, regardless of the technical path used.
+- **Safe Mode is defense in depth, not a security guarantee.** The `cms.safe_mode` Twig sandbox raises the bar against unintended code paths but is not a hard boundary against a determined editor. Reports of methods reachable through the sandbox that should be blocked are treated as hardening improvements rather than vulnerabilities, and are addressed in standard patch releases without a separate advisory or CVE.
+- **Demo themes are starting points, not hardened production templates.** The bundled themes assume trusted backend users. Theme-author choices (e.g. whether to apply `|html_clean` to user-submitted content) are the operator's responsibility, not framework defects.
+
 ## Scope
 
 We are interested in vulnerabilities that affect October CMS or [first-party October CMS plugins](https://github.com/rainlab), tested on **locally installed software running the latest version**. You can install a local copy of October CMS by following these [installation instructions](https://docs.octobercms.com/setup/installation.html). Please do not test against any October CMS installation you do not own, including [our website](https://octobercms.com).
@@ -54,6 +63,8 @@ We may not accept the following as vulnerabilities:
 - Vulnerabilities affecting outdated versions of October CMS
 - Vulnerabilities requiring a modified, custom, or compromised update gateway (the `update_gateway` configuration exists for internal development purposes only and custom gateways are not a supported configuration)
 - Actions performed by authenticated administrators acting within their granted permissions (e.g. an admin publishing content containing JavaScript is by design, not XSS)
+- Safe Mode sandbox hardening (see the [Trust Model](#trust-model) section)
+- Reports that reduce to a Publisher / markup-editor user performing actions that user is trusted to perform under our trust model
 
 ## Third-party Software
 
