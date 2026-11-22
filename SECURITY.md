@@ -32,6 +32,7 @@ Before submitting a report, please confirm it represents a real privilege escala
 
 - **Backend access is trusted.** Any authenticated backend user is trusted to the extent of their granted permissions. The Publisher and Developer role labels are a UX distinction, not a security boundary. Both are trusted roles within the system.
 - **CMS markup editing is a Developer-trust permission.** Users with `editor.cms_pages` (or partials / layouts) can write Twig and PHP by design. Reports that reduce to "a markup editor can do X" are not vulnerabilities, regardless of the technical path used.
+- **Other template editing is trusted in the same way.** Permissions that author templates outside the CMS editor, such as mail templates (`mail.templates`) and Tailor blueprints (`editor.tailor_blueprints`), write Twig that is evaluated by design. Granting one of these permissions grants that ability, and reports that reduce to "a template editor can do X" are not vulnerabilities either.
 - **Safe Mode is defense in depth, not a security guarantee.** The `cms.safe_mode` Twig sandbox raises the bar against unintended code paths but is not a hard boundary against a determined editor. Reports of methods reachable through the sandbox that should be blocked are treated as hardening improvements rather than vulnerabilities, and are addressed in standard patch releases without a separate advisory or CVE.
 - **Demo themes are starting points, not hardened production templates.** The bundled themes assume trusted backend users. Theme-author choices (e.g. whether to apply `|html_clean` to user-submitted content) are the operator's responsibility, not framework defects.
 
@@ -64,7 +65,7 @@ We may not accept the following as vulnerabilities:
 - Vulnerabilities requiring a modified, custom, or compromised update gateway (the `update_gateway` configuration exists for internal development purposes only and custom gateways are not a supported configuration)
 - Actions performed by authenticated administrators acting within their granted permissions (e.g. an admin publishing content containing JavaScript is by design, not XSS)
 - Safe Mode sandbox hardening (see the [Trust Model](#trust-model) section)
-- Reports that reduce to a Publisher / markup-editor user performing actions that user is trusted to perform under our trust model
+- Reports that reduce to a Publisher / markup-editor / template-editor user performing actions that user is trusted to perform under our trust model
 
 ## Third-party Software
 
